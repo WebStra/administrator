@@ -11,27 +11,22 @@
  *
  * @type array
  *
- * 	array(
- *		'E-Commerce' => array('collections', 'products', 'product_images', 'orders'),
- *		'homepage_sliders',
- *		'users',
- *		'roles',
- *		'colors',
- *		'Settings' => array('settings.site', 'settings.ecommerce', 'settings.social'),
- * 		'Analytics' => array('E-Commerce' => 'page.ecommerce.analytics'),
- *	)
+ *    array(
+ *        'E-Commerce' => array('collections', 'products', 'product_images', 'orders'),
+ *        'homepage_sliders',
+ *        'users',
+ *        'roles',
+ *        'colors',
+ *        'Settings' => array('settings.site', 'settings.ecommerce', 'settings.social'),
+ *        'Analytics' => array('E-Commerce' => 'page.ecommerce.analytics'),
+ *    )
  */
 return [
-//     'App' => [
-//          'page_header' => 'Some Title' // work only for parent category
-//          'dashboard' => [
-//          'icon'  => 'fa-dashboard',
-//          'route' => 'admin_dashboard',
-//          ]
-//     ]
+    'dashboard' => [
+        'icon' => 'fa-dashboard',
+    ],
     'Roles' => [
         'page_header' => 'not working',
-//        'icon' => 'fa fa-circle-o',
         'pages' => [
             'admins' => [
                 'icon' => 'fa fa-user'
@@ -43,7 +38,6 @@ return [
     ],
     'Content' => [
         'page_header' => 'main content site',
-//        'icon' => 'fa fa-circle-o',
         'pages' => [
             'pages' => [
                 'icon' => 'fa fa-file-text-o'

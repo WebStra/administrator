@@ -43,6 +43,7 @@ class ServiceProvider extends Provider
             __DIR__ . '/../../config'     => config_path(),
             __DIR__ . '/../../../public'  => public_path('administrator'),
             __DIR__ . '/../../routes.php' => app_path('Http/administrator/routes.php'),
+            __DIR__ . '/../../Controller/DashboardStatisticController.php' => app_path('Http/administrator/DashboardStatisticController.php'),
 
             //todo: find better way to implement this stuff ...
             __DIR__ . '/../../database/migrations' => database_path('migrations/'),

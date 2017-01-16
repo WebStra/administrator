@@ -70,7 +70,7 @@ Route::group(['prefix' => 'admin'
         Route::get('dashboard',
             [
                 'as' => 'admin_dashboard',
-                'uses' => 'Keyhunter\Administrator\Controller@dashboard'
+                'uses' => 'App\Http\administrator\DashboardStatisticController@dashboard'
             ]);
 
         // Index

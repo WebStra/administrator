@@ -452,10 +452,6 @@ class Controller extends ControllerAbstract
         return back()->with('messages', ['Settings saved successfully']);
     }
 
-    public function dashboard()
-    {
-        return view('administrator::dashboard');
-    }
 
     private function processRelations($relations)
     {
