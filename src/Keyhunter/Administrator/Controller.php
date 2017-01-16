@@ -454,7 +454,7 @@ class Controller extends ControllerAbstract
 
     public function dashboard()
     {
-        return "@todo: not implemented yet. <a href='/admin/pages'>Go to admin panel -></a>";
+        return view('administrator::dashboard');
     }
 
     private function processRelations($relations)

@@ -16,6 +16,8 @@
     <!-- Ionicons -->
     <!--<link href="<?= asset($assets . '/css/ionicons.min.css') ?>" rel="stylesheet" type="text/css" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="<?= asset($assets .'/plugins/morris/morris.css') ?>">
     <!-- Theme style -->
     <link href="<?= asset($assets . '/css/AdminLTE.min.css') ?>" rel="stylesheet" type="text/css" />
     <!-- Theme Skins -->
@@ -102,6 +104,8 @@
 <!-- Admin Main Js -->
 <script src="<?= asset($assets . '/js/main.js') ?>" type="text/javascript"></script>
 <!-- Plugins -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="<?= asset($assets .'/plugins/morris/morris.min.js') ?>"></script>
 <script src="<?= asset($assets . '/plugins/daterangepicker/moment.min.js') ?>"></script>
 <script src="<?= asset($assets . '/plugins/datepicker/bootstrap-datepicker.js') ?>" type="text/javascript"></script>
 <script src="<?= asset($assets . '/plugins/daterangepicker/daterangepicker.js') ?>" type="text/javascript"></script>
