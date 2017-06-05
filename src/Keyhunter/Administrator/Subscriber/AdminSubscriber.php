@@ -37,7 +37,7 @@ class AdminSubscriber {
         $time = Carbon::now();
         $ip   = $this->request->getClientIp();
 
-        Session::set('admin.last_login_at', $time);
+        Session::put('admin.last_login_at', $time);
 
         $this->log("Admin [$user->name] logged in at [$time] from [$ip]");
     }

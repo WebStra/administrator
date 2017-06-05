@@ -44,6 +44,12 @@ class ServiceProvider extends Provider
             __DIR__ . '/../../../public'  => public_path('administrator'),
             __DIR__ . '/../../routes.php' => app_path('Http/administrator/routes.php'),
             __DIR__ . '/../../Controller/DashboardStatisticController.php' => app_path('Http/administrator/DashboardStatisticController.php'),
+            __DIR__ . '/../../Contracts/RepositoryContract.php' => app_path('Contracts/RepositoryContract.php'),
+            __DIR__ . '/../../Contracts/TranslatableRepositoryContract.php' => app_path('Contracts/TranslatableRepositoryContract.php'),
+            __DIR__ . '/../../Contracts/ViewComposerContract.php' => app_path('Contracts/ViewComposerContract.php'),
+            __DIR__ . '/../../Repositories/Repository.php' => app_path('Repositories/Repository.php'),
+            __DIR__ . '/../../Repositories/RolesRepository.php' => app_path('Repositories/RolesRepository.php'),
+
 
             //todo: find better way to implement this stuff ...
             __DIR__ . '/../../database/migrations' => database_path('migrations/'),

@@ -17,7 +17,7 @@ class CreateLanguagesTable extends Migration
 		{
 			$table->increments('id');
 			$table->char('slug', 2)->unique();
-			$table->string('title', 30);
+			$table->string('title');
 			$table->tinyInteger('rank')->unsigned()->default(1)->index();
 			$table->boolean('active')->default(1)->index();
 		});

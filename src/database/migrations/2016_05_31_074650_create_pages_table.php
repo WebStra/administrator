@@ -15,7 +15,7 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('slug', 225)->unique();
+            $table->string('slug')->unique();
             $table->boolean('active')->default(1)->index();
             $table->timestamps();
         });
@@ -27,7 +27,7 @@ class CreatePagesTable extends Migration
             $table->unsignedInteger('page_id');
             $table->unsignedInteger('language_id');
 
-            $table->string('title', 255);
+            $table->string('title');
             $table->text('body');
 
             $table->unique(['page_id', 'language_id']);

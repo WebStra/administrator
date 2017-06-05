@@ -16,9 +16,9 @@ class CreateOptionsTable extends Migration
     {
         Schema::create($this->table, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('key', 225)->unique();
-            $table->string('value', 255);
-            $table->string('group', 255);
+            $table->string('key')->unique();
+            $table->string('value');
+            $table->string('group');
         });
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Contracts\Auth\Guard;
+use App\Repositories\RolesRepository;
 
 return [
     'prefix'          => 'admin',
