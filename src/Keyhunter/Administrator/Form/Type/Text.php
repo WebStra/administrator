@@ -11,7 +11,7 @@ class Text extends Element
 	 * @var array
 	 */
 	protected $attributes = [
-		'maxlength' 	=> 100,
+		'maxlength' 	=> 255,
 		'class'			=> 'form-control input-sm',
 		'style'			=> 'width: 300px;'
 	];

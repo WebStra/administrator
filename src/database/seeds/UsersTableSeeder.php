@@ -31,8 +31,15 @@ class UsersTableSeeder extends Seeder
         });
 
         User::create([
-            'name' => 'Keyhunter',
-            'email' => 'keyhunter@gmail.com',
+            'name' => 'Marcus',
+            'email' => 'marcus.stratu@gmail.com',
+            'role_id' => Role::whereName('admin')->first()->id,
+            'password' => Hash::make('admin123')
+        ]);
+
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
             'role_id' => Role::whereName('admin')->first()->id,
             'password' => Hash::make('admin123')
         ]);

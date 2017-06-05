@@ -6,28 +6,19 @@ return [
     'model' => 'Keyhunter\Administrator\Model\Settings',
 
     'rules' => [
-        'admin::email'   => 'required|email',
-        'support::email' => 'required|email'
+        'site::email'   => 'required|email',
+        'site::phone' => 'required'
     ],
 
     'edit_fields' => [
-        'admin::email' => ['type' => 'email'],
+        'site::email' => ['type' => 'email'],
 
-        'support::email' => ['type' => 'email'],
+        'site::phone' => ['type' => 'text'],
 
-        'site::about' => ['type' => 'textarea'],
+        'site::adress' => ['type' => 'text'],
 
-//        'site::roles' => [
-//            'type'    => 'select',
-//            'options' => ['guest', 'member', 'admin', 'content manager']
-//        ],
+        'site::map' => ['type' => 'text'],
 
-        'site::down' => [
-            'type' => 'select',
-            'options' => [
-                1 => 'enable',
-                0 => 'disable'
-            ]
-        ]
+
     ]
 ];

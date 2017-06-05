@@ -55,6 +55,7 @@ class TranslatableElement implements FormElement, Validator
 			// set element belongs to locale
 			$element->setName("{$locale->id}[{$name}]");
 
+
 			$input = $element->html();
 			$input = '<div class="translatable '.($locale->id == Lang::id() ? '' : 'hidden').'" data-locale="'.($locale->id).'">'.$input.'</div>';
 

@@ -481,10 +481,10 @@ if ( ! function_exists('keyhunter_administrator_copyright')) {
     /** render copyright. */
     function keyhunter_administrator_copyright() {
         return sprintf(
-            '<strong>Copyright © %s <a href="%s">Powered by %s</a>.</strong> All rights reserved.',
+            '<strong>Copyright © %s <a href="%s" target="_blank">Powered by %s</a>.</strong> All rights reserved.',
                 config('administrator.copyright.years', '2015-2016'),
-                config('administrator.copyright.poweredby', 'https://github.com/keyhunter'),
-                config('administrator.copyright.author', 'Keyhunter')
+                config('administrator.copyright.poweredby', 'https://github.com/WebStra'),
+                config('administrator.copyright.author', 'Stratu Marcel')
             );
     }
 }

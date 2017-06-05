@@ -11,8 +11,15 @@ use Keyhunter\Administrator\Form\TranslatableElement;
 use Keyhunter\Administrator\Form\Type\Key;
 use Keyhunter\Administrator\Form\Uploadable;
 
+/**
+ * Class Controller
+ * @package Keyhunter\Administrator
+ */
 class Controller extends ControllerAbstract
 {
+    /**
+     * @return mixed
+     */
     public function index()
     {
         $this->registerAuditAction(HttpRequest::all());
@@ -47,6 +54,12 @@ class Controller extends ControllerAbstract
         return view('administrator::edit', ['item' => $this->eloquent]);
     }
 
+    /**
+     * @param UpdateRequest|null $request
+     * @param $page
+     * @param int $id
+     * @return mixed
+     */
     public function update(UpdateRequest $request = null, $page, $id = 0)
     {
         $this->eloquent = $this->eloquent->findRowByID($id);
@@ -133,6 +146,14 @@ class Controller extends ControllerAbstract
         */
         $this->eloquent->fill($data)->save();
 
+        if (\Request::get('password')) {
+            $nfo = password_get_info(\Request::get('password'));
+            if ($nfo['algoName'] != 'bcrypt') {
+                $this->eloquent->password = \Hash::make(\Request::get('password'));
+                $this->eloquent->save();
+            }
+        }
+
         /*
         |-------------------------------------------------------
         | Relationships
@@ -162,6 +183,10 @@ class Controller extends ControllerAbstract
         return $this->getAfterUpdateRedirect($page, $this->eloquent->id)->with('messages', ['Item has been saved.']);
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function create(Request $request)
     {
         $this->checkActionPermissions(null, $this->eloquent);
@@ -171,6 +196,11 @@ class Controller extends ControllerAbstract
         return view('administrator::edit', $request->all());
     }
 
+    /**
+     * @param $page
+     * @param $id
+     * @return mixed
+     */
     public function delete($page, $id)
     {
         $item = $this->eloquent->findRowByID($id);
@@ -200,6 +230,10 @@ class Controller extends ControllerAbstract
         return redirect(route('admin_model_index', ['page' => $page]) . $queryString)->withErrors(['An error occurred during Item deletion...']);
     }
 
+    /**
+     * @param $page
+     * @return mixed
+     */
     public function customGlobal($page)
     {
         $action = HttpRequest::get('action');
@@ -227,6 +261,11 @@ class Controller extends ControllerAbstract
         return redirect(route('admin_model_index', ['page' => $page]) . $queryString)->withErrors(['An error occurred during request processing...']);
     }
 
+    /**
+     * @param $page
+     * @param null $id
+     * @return mixed
+     */
     protected function getAfterUpdateRedirect($page, $id = null)
     {
         $queryString = $this->detectQueryString()->toString();
@@ -453,6 +492,9 @@ class Controller extends ControllerAbstract
     }
 
 
+    /**
+     * @param $relations
+     */
     private function processRelations($relations)
     {
         foreach ($relations as $name => $relation)
@@ -473,6 +515,9 @@ class Controller extends ControllerAbstract
         }
     }
 
+    /**
+     * @param null $arguments
+     */
     private function registerAuditAction($arguments = null)
     {
         $this->events->fire('admin.performAction', [$this->user, "{$this->controller}.{$this->action}", $arguments]);
@@ -498,6 +543,9 @@ class Controller extends ControllerAbstract
         return $field instanceof TranslatableElement;
     }
 
+    /**
+     * @return mixed
+     */
     protected function getEditableFields()
     {
         return $this->application['scaffold.fields']->getFields();
@@ -527,6 +575,10 @@ class Controller extends ControllerAbstract
         return $value;
     }
 
+    /**
+     * @param null $action
+     * @param null $model
+     */
     protected function checkActionPermissions($action = null, $model = null)
     {
         // get current action if not provided
