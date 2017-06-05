@@ -60,8 +60,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Keyhunter\Administrator\AuthRepository as Authenticatable;
 ```
 
-- Done. Now go to ``` localhost:8000\admin ``` to login use:
+- Done. Now go to ``` localhost\admin ``` to login use:
 ```
-  login: keyhunter@gmail.com
+  login: admin@admin.com
   pass: admin123
 ```
