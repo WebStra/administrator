@@ -4,14 +4,14 @@ use Illuminate\Contracts\Auth\Guard;
 
 return [
     'prefix'          => 'admin',
-    'title'           => 'Admin <b>panel</b>',
-    'title_mini'      => '<b>AP</b>',
+    'title'           => 'Admin panel',
+    'title_mini'      => 'AP',
     'auth_identity'   => 'email',
     'auth_credential' => 'password',
     'auth_conditions' => [
         'active' => 1,
         'role_id'   => function () {
-            return \Keyhunter\Administrator\Model\Role::whereName('admin')->first()->id;
+            return (new RolesRepository)->getAdminRole()->id;
         }
     ],
     'auth_model'      => 'App\User',
@@ -31,8 +31,12 @@ return [
     /**
      * Basic user validation
      */
-    'permission'      => function (Guard $user) {
-        return ! ($user->guest());
+        'permission'      => function (Guard $user) {
+            if($user->user()) {
+                return (new RolesRepository)->getAdminRole()->id == $user->user()->role_id;
+            }
+
+            return ! ($user->guest());
     },
     /**
      * The menu item that should be used as the default landing page of the administrative section
@@ -40,8 +44,6 @@ return [
      * @type string
      */
     'home_page'       => 'admin/dashboard',
-    'show_user_panel' => 'false',
-    'show_search_bar' => 'false', //todo: repair this stuff
     /**
      * Default locale
      */

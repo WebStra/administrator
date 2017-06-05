@@ -1,13 +1,3 @@
-@if(config('administrator.show_user_panel', true))
-    @include('administrator::partials/user_panel')
-@endif
-
-@if(config('administrator.show_search_bar', false))
-    @include('administrator::partials/search_nav')
-@endif
-
-<!-- sidebar menu: : style can be found in sidebar.less -->
-
 <div class="sidebar" id="scrollspy" style="overflow: hidden; width: auto">
     <ul class="sidebar-menu">
         @foreach($navigation->getPages() as $page => $options)

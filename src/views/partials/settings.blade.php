@@ -1,4 +1,4 @@
-<li class="dropdown">
+<li class="dropdown user user-menu">
     @if (count($settingsPages) > 1)
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="glyphicon glyphicon-cog"></i>
@@ -6,13 +6,13 @@
         </a>
         <ul class="dropdown-menu">
             <!-- Menu Body -->
-            <li class="user-body">
-                @foreach($settingsPages as $page => $title)
-                    <div class="col-xs-4 text-center">
+            @foreach($settingsPages as $page => $title)
+                <li class="user-body">
+                    <div>
                         <a href="{{ route('admin_settings_edit', ['page' => $page]) }}">{{ trans($title) }}</a>
                     </div>
-                @endforeach
-            </li>
+                </li>
+            @endforeach
         </ul>
     @else
         <?php list($page, $title) = each($settingsPages);?>
