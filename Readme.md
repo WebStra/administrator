@@ -1,4 +1,4 @@
-# Admin panel for Laravel 5.2
+# Admin panel for Laravel 5.4
 
 **This package require this packages:**
 
@@ -25,8 +25,14 @@ composer require keyhunter/administrator dev-master
 ];
 ```
 
+-Update **AppServiceProvider** from App\Providers\AppServiceProvider -place in public function boot() :
+
+```
+ Schema::defaultStringLength(191);
+```
+
 - Remove **DatabaseSeeder.php** from *{root_project}\database\seeds*
-and remove create_users_table from *{root_project}\database\migrations* if exists and publish files from ``` /vendor ``` :
+and remove **create_users_table** from *{root_project}\database\migrations* if exists and publish files from ``` /vendor ``` :
 
 ```
 php artisan vendor:publish
