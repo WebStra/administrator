@@ -26,6 +26,7 @@ composer require keyhunter/administrator dev-master
 ```
 
 -Update **AppServiceProvider** from App\Providers\AppServiceProvider -place in public function boot() :
+**use Illuminate\Support\Facades\Schema;**
 
 ```
  Schema::defaultStringLength(191);
