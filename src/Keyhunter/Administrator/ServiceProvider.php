@@ -161,7 +161,12 @@ class ServiceProvider extends Provider
             $globalConfig = $app['scaffold.config'];
 
             if (! $path) {
-                $path = (array) $globalConfig->get('models_path');
+                if(Request::segment(2) == 'settings') {
+                    $path = (array) $globalConfig->get('settings_path');
+                }
+                else {
+                    $path = (array) $globalConfig->get('models_path');
+                }
             }
 
             // resolve module name when a custom controller@action should handle a route
