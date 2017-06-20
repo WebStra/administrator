@@ -144,15 +144,13 @@ class Controller extends ControllerAbstract
         | Save main data
         |-------------------------------------------------------
         */
-        $this->eloquent->fill($data)->save();
-
-        if (\Request::get('password')) {
-            $nfo = password_get_info(\Request::get('password'));
-            if ($nfo['algoName'] != 'bcrypt') {
-                $this->eloquent->password = \Hash::make(\Request::get('password'));
-                $this->eloquent->save();
-            }
+        
+        $nfo = password_get_info($data['password']);
+        if ($nfo['algoName'] != 'bcrypt') {
+            $data['password'] = \Hash::make($data['password']);
         }
+        
+        $this->eloquent->fill($data)->save();
 
         /*
         |-------------------------------------------------------
@@ -206,6 +204,19 @@ class Controller extends ControllerAbstract
         $item = $this->eloquent->findRowByID($id);
 
         $this->checkActionPermissions(null, $item);
+        
+        list($files, $images) = $this->decoupleMediaFromData();
+
+        if ($images) {
+            foreach ($images as $image) {
+                \File::delete(public_path() . $image->getValue());
+            }
+        }
+        if ($files) {
+            foreach ($files as $file) {
+                \File::delete(public_path() . $file->getValue());
+            }
+        }
 
         /**
          * @var $action \Keyhunter\Administrator\Actions\Action
