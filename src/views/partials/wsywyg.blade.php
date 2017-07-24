@@ -19,14 +19,14 @@
 </script>
 
 @if(in_array('ckeditor', $editors = $fieldFactory->getEditors()))
-    <script type="text/javascript" src="{{ asset($assets . '/js/plugins/ckeditor/ckeditor.js') }}"></script>
-    <script type="text/javascript" src="{{ asset($assets . '/js/plugins/ckeditor/adapters/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset($assets . '/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset($assets . '/plugins/ckeditor/adapters/jquery.js') }}"></script>
     <script>Editors.init.ckeditor();</script>
 @endif
 
 @if (in_array('tinymce', $editors))
-    <script type="text/javascript" src="{{ asset($assets . '/js/plugins/tinymce/tinymce.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset($assets . '/js/plugins/tinymce/jquery.tinymce.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset($assets . '/plugins/tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset($assets . '/plugins/tinymce/jquery.tinymce.min.js') }}"></script>
     <script>Editors.init.tinymce();</script>
 @endif
 
