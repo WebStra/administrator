@@ -144,10 +144,11 @@ class Controller extends ControllerAbstract
         | Save main data
         |-------------------------------------------------------
         */
-        
-        $nfo = password_get_info($data['password']);
-        if ($nfo['algoName'] != 'bcrypt') {
-            $data['password'] = \Hash::make($data['password']);
+        if(isset($data['password'])) {
+             $nfo = password_get_info($data['password']);
+             if ($nfo['algoName'] != 'bcrypt') {
+                $data['password'] = \Hash::make($data['password']);
+            }
         }
         
         $this->eloquent->fill($data)->save();
